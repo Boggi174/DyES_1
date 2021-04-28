@@ -5,20 +5,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class DB_Connection {
 	
+	ArrayList<Usuario> Users  = new ArrayList<Usuario>();
+	
 	Connection connect;
     public static void main(String[] args) 
     {
-    	DB_Connection con = new DB_Connection();
-        con.conectar();
-        con.leer();
+ 
 
     }
     
-    private void conectar()
+    public Connection conectar()
     {
         String servidor = "jdbc:mysql://localhost/case";
         String usuario = "testo";
@@ -34,11 +35,12 @@ public class DB_Connection {
         }
         if(connect != null)
         {
-            System.out.println("Conexion exitosa!");
+           // System.out.println("Conexion exitosa!");
         }
+        return connect;
     }
         
-        private void leer()
+        public  ArrayList<Usuario> leerUsuarios(Connection connect)
         {
             PreparedStatement pstm = null;
             ResultSet rs = null;
@@ -47,10 +49,19 @@ public class DB_Connection {
             {
                 pstm = connect.prepareStatement(query);
                 rs = pstm.executeQuery();
-                System.out.println("Inicio de tabla ");
+               // System.out.println("Inicio de tabla ");
                 while(rs.next())
                 {
-                    System.out.println(rs.getString("Nombre_Usuario"));
+                   
+                	String nombreUsuario = rs.getString("Nombre_Usuario");
+                	String contraseniaUsuario = rs.getString("Contraseña_Usuario");
+                	Long telefonoUsuario = rs.getLong("Telefono_Usuario");
+                	String correoUsuario = rs.getString("Correo_Usuario");
+                	int tipoUsuario = rs.getInt("Tipo_Usuario");
+                	
+                	Users.add(new Usuario(nombreUsuario,contraseniaUsuario,correoUsuario,telefonoUsuario,tipoUsuario));
+                	
+                	//System.out.println(rs.getString("Nombre_Usuario"));
                     
                 }
             } catch(SQLException e)
@@ -58,7 +69,10 @@ public class DB_Connection {
                 e.printStackTrace();    
             
             }    
-        
+            return Users;
         }
+        
+        
+        
 
 }
