@@ -33,6 +33,7 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 	JButton btn_submit;
 	JFormattedTextField frmtdtxtfldUsuario;
 	JLabel status_label;
+	JButton btn_registro;
 
 	/**
 	 * Launch the application.
@@ -81,13 +82,14 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 		pwdContrasea.setBounds(224, 227, 162, 20);
 		frmInicioDeSesion.getContentPane().add(pwdContrasea);
 		
-		btn_submit = new JButton("Entrar");
+		btn_submit = new JButton("»");
 		btn_submit.setBounds(224, 275, 63, 23);
 		btn_submit.addActionListener(this);
 		frmInicioDeSesion.getContentPane().add(btn_submit);
 		
-		JButton btn_registro = new JButton("Registrar");
+		btn_registro = new JButton("Modificar");
 		btn_registro.setBounds(297, 275, 89, 23);
+		btn_registro.addActionListener(this);
 		frmInicioDeSesion.getContentPane().add(btn_registro);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -112,14 +114,14 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 			String user = frmtdtxtfldUsuario.getText().toUpperCase();
 			String password = String.valueOf(pwdContrasea.getPassword());
 			for (Usuario x:UsersArray) {
-				//System.out.println("Sale este nombre en la busqueda "+x.getNombreMamalonMamalonzisimo().toUpperCase());
 				if(user.equals(x.getNombreMamalonMamalonzisimo().toUpperCase())) {
 					if(password.equals(x.getContraseniaMamalona())) {
 						acceso = 1;
 						System.out.println("Entraste!");
 						Pantalla_Principal2 sex = new Pantalla_Principal2();
 						sex.launcherPantallaPrincipal2();
-						frmInicioDeSesion.dispatchEvent(new WindowEvent(frmInicioDeSesion, WindowEvent.WINDOW_CLOSING));
+						frmInicioDeSesion.dispose();
+						
 					} else 
 						acceso = 2;
 					}
@@ -131,5 +133,15 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 			else if(acceso == 0) {
 				status_label.setText("No existe el usuario!");
 			}
+		
+	
+		if(e.getSource() == btn_registro) {
+			System.out.println("Webos!");
+			Pantalla_Registro2 sexo = new Pantalla_Registro2();
+			sexo.launcherPantallaDeRegistro2();
+			frmInicioDeSesion.dispose();
+		}
+		
+		
 	}
 }

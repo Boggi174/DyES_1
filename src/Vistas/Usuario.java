@@ -3,6 +3,7 @@ package Vistas;
 public class Usuario
 {
 
+	public int idUsuario;
 	public String NombreMamalonMamalonzisimo;
 	public String contraseniaMamalona;
 	public String correoPerron;
@@ -10,9 +11,10 @@ public class Usuario
 	public int tipoDeUsuario;
 	
 	
-	public Usuario(String nombreMamalonMamalonzisimo, String contraseniaMamalona, String correoPerron,
+	public Usuario(int idUsuario ,String nombreMamalonMamalonzisimo, String contraseniaMamalona, String correoPerron,
 			Long telefonoPerron, int tipoDeUsuario) {
 		super();
+		this.idUsuario = idUsuario;
 		NombreMamalonMamalonzisimo = nombreMamalonMamalonzisimo;
 		this.contraseniaMamalona = contraseniaMamalona;
 		this.correoPerron = correoPerron;
@@ -21,6 +23,16 @@ public class Usuario
 	}
 	
 	
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+
 	public String getNombreMamalonMamalonzisimo() {
 		return NombreMamalonMamalonzisimo;
 	}

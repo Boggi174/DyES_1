@@ -18,16 +18,7 @@ public class Pantalla_Principal2 {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Pantalla_Principal2 window = new Pantalla_Principal2();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+
 	}
 
 	/**
@@ -36,14 +27,19 @@ public class Pantalla_Principal2 {
 	 */
 	public void launcherPantallaPrincipal2() {
 		Pantalla_Principal2 window = new Pantalla_Principal2();
+		window.initializerip();
 		window.frame.setVisible(true);
-		initializerip();
+	
+		
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initializerip() {
+		
+	
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1280, 720);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
