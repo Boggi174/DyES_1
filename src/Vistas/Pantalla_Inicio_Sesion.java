@@ -9,6 +9,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+
+import com.formdev.flatlaf.IntelliJTheme;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
@@ -43,8 +46,10 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					IntelliJTheme.install( Pantalla_Inicio_Sesion.class.getResourceAsStream("AA.json" ) );
 					Pantalla_Inicio_Sesion window = new Pantalla_Inicio_Sesion();
 					window.frmInicioDeSesion.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -63,6 +68,7 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frmInicioDeSesion = new JFrame();
 		frmInicioDeSesion.setResizable(false);
 		frmInicioDeSesion.setTitle("Inicio de Sesion");

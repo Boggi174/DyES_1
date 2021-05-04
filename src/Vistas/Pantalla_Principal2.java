@@ -1,6 +1,8 @@
 package Vistas;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.BoxLayout;
@@ -10,7 +12,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 
-public class Pantalla_Principal2 {
+public class Pantalla_Principal2 implements ActionListener {
 
 	private JFrame frame;
 
@@ -63,6 +65,7 @@ public class Pantalla_Principal2 {
 		frame.getContentPane().add(panel);
 		
 		JButton btnNewButton = new JButton("A\u00F1adir Nota");
+		btnNewButton.addActionListener(this);
 		btnNewButton.setBounds(1153, 579, 101, 91);
 		frame.getContentPane().add(btnNewButton);
 		
@@ -79,5 +82,11 @@ public class Pantalla_Principal2 {
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_2.setBounds(343, 55, 219, 22);
 		frame.getContentPane().add(panel_2);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

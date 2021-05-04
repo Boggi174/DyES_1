@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
 
-public class Ver_Nota {
+public class Ver_Nota2 {
 
 	private JFrame frame;
 	private JTextField txtNombre;
@@ -26,7 +26,7 @@ public class Ver_Nota {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ver_Nota window = new Ver_Nota();
+					Ver_Nota2 window = new Ver_Nota2();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,15 +37,18 @@ public class Ver_Nota {
 
 	/**
 	 * Create the application.
+	 * @return 
 	 */
-	public Ver_Nota() {
-		initialize();
+	public void launcherVer_Nota2() {
+		Ver_Nota2 window = new Ver_Nota2();
+		window.initializerip();
+		window.frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initializerip() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 510, 630);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
