@@ -124,8 +124,8 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 					if(password.equals(x.getContraseniaMamalona())) {
 						acceso = 1;
 						System.out.println("Entraste!");
-						Pantalla_Principal2 sex = new Pantalla_Principal2();
-						sex.launcherPantallaPrincipal2();
+						Pantalla_Principal2 se = new Pantalla_Principal2();
+						se.launcherPantallaPrincipal2();
 						frmInicioDeSesion.dispose();
 						
 					} else 
@@ -143,8 +143,8 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 	
 		if(e.getSource() == btn_registro) {
 			System.out.println("Webos!");
-			Pantalla_Registro2 sexo = new Pantalla_Registro2();
-			sexo.launcherPantallaDeRegistro2();
+			Pantalla_Registro2 sa = new Pantalla_Registro2();
+			sa.launcherPantallaDeRegistro2();
 			frmInicioDeSesion.dispose();
 		}
 		

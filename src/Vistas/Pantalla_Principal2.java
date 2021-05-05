@@ -15,6 +15,7 @@ import javax.swing.JButton;
 public class Pantalla_Principal2 implements ActionListener {
 
 	private JFrame frame;
+	JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -64,7 +65,7 @@ public class Pantalla_Principal2 implements ActionListener {
 		panel.setBounds(0, 0, 302, 681);
 		frame.getContentPane().add(panel);
 		
-		JButton btnNewButton = new JButton("A\u00F1adir Nota");
+		btnNewButton = new JButton("A\u00F1adir Nota");
 		btnNewButton.addActionListener(this);
 		btnNewButton.setBounds(1153, 579, 101, 91);
 		frame.getContentPane().add(btnNewButton);
@@ -87,6 +88,10 @@ public class Pantalla_Principal2 implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getSource() == btnNewButton) {
+			Ver_Nota2 vernota = new Ver_Nota2();
+			vernota.launcherVer_Nota2();
+			frame.dispose();
+		}
 	}
 }

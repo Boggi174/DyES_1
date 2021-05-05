@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public class DB_Connection {
 	
 	ArrayList<Usuario> Users  = new ArrayList<Usuario>();
+	ArrayList<Nota> Notas = new ArrayList<Nota>();
+	ArrayList<Categoria> Categorias = new ArrayList<Categoria>();
+	ArrayList<Importancia> Importancias = new ArrayList<Importancia>();
+	ArrayList<Nivel> Niveles = new ArrayList<Nivel>();
+	ArrayList<Tipo> Tipos = new ArrayList<Tipo>();
 	
 	Connection connect;
-    public static void main(String[] args) 
-    {
- 
-
-    }
     
     public Connection conectar()
     {
@@ -124,7 +124,178 @@ public class DB_Connection {
         }
         
         
+        public ArrayList<Nota> leerNota(Connection connect){
+        	PreparedStatement pstm = null;
+            ResultSet rs = null;
+            String query = "SELECT * FROM nota_principal";
+            try
+            {
+                pstm = connect.prepareStatement(query);
+                rs = pstm.executeQuery();
+               // System.out.println("Inicio de tabla ");
+                while(rs.next())
+                {
+                   
+                	int idNota = rs.getInt("ID_registro");
+                	String nombre_nota = rs.getString("nombre");
+                	String descripcion_nota = rs.getString("descripcion");
+                	int id_tipo_nota = rs.getInt("ID_tipo");
+                	int id_importancia_nota = rs.getInt("ID_importancia");
+                	int id_categoria_nota = rs.getInt("ID_categoria");
+                	String fecha_nota =rs.getString("fecha");
+                	int id_nivel_nota = rs.getInt("ID_nivel");
+                	int id_usuario_nota= rs.getInt("ID_Usuario");
+                	
+                	Notas.add(new Nota(idNota,nombre_nota,descripcion_nota, id_tipo_nota, id_importancia_nota,id_categoria_nota,fecha_nota,id_nivel_nota, id_usuario_nota));
+                	
+                	//System.out.println(rs.getString("Nombre_Usuario"));
+                    
+                }
+            } catch(SQLException e)
+            {
+                e.printStackTrace();    
+            
+            }    
+        	return Notas;
+        	
+        }
+        
+        public ArrayList<Categoria> leerCategoria(Connection connect){
+        	PreparedStatement pstm = null;
+            ResultSet rs = null;
+            String query = "SELECT * FROM categoria_nota";
+            try
+            {
+                pstm = connect.prepareStatement(query);
+                rs = pstm.executeQuery();
+               // System.out.println("Inicio de tabla ");
+                while(rs.next())
+                {
+                   
+                	int id_categoria = rs.getInt("ID_categoria");
+                	String nombre_categoria = rs.getString("categoria_descripcion");
+                
+                	
+                	Categorias.add(new Categoria(id_categoria,nombre_categoria));
+                	
+                	//System.out.println(rs.getString("Nombre_Usuario"));
+                    
+                }
+            } catch(SQLException e)
+            {
+                e.printStackTrace();    
+            
+            }    
+        	return Categorias;
+        }
+        
+        public ArrayList<Importancia> leerImportancia (Connection connect){
+        	PreparedStatement pstm = null;
+            ResultSet rs = null;
+            String query = "SELECT * FROM importancia_nota";
+            try
+            {
+                pstm = connect.prepareStatement(query);
+                rs = pstm.executeQuery();
+               // System.out.println("Inicio de tabla ");
+                while(rs.next())
+                {
+                   
+                	int id_importancia = rs.getInt("ID_importancia");
+                	String nombre_importancia = rs.getString("importancia_nota");
+                
+                	
+                	Importancias.add(new Importancia(id_importancia,nombre_importancia));
+                	
+                	//System.out.println(rs.getString("Nombre_Usuario"));
+                    
+                }
+            } catch(SQLException e)
+            {
+                e.printStackTrace();    
+            
+            }  
+        	return Importancias;
+        }
+        
+        public ArrayList<Nivel> leerNiveles(Connection connect){
+        	
+        	PreparedStatement pstm = null;
+            ResultSet rs = null;
+            String query = "SELECT * FROM nivel_nota";
+            try
+            {
+                pstm = connect.prepareStatement(query);
+                rs = pstm.executeQuery();
+               // System.out.println("Inicio de tabla ");
+                while(rs.next())
+                {
+                   
+                	int id_nivel = rs.getInt("ID_nivel");
+                	String nombre_nivel = rs.getString("nota_nivel");
+                
+                	
+                	Niveles.add(new Nivel(id_nivel, nombre_nivel));
+                	
+                	//System.out.println(rs.getString("Nombre_Usuario"));
+                    
+                }
+            } catch(SQLException e)
+            {
+                e.printStackTrace();    
+            
+            }  
+        	return Niveles;
+        }
         
         
+        public ArrayList <Tipo> leerTipos(Connection connect){
+        	PreparedStatement pstm = null;
+            ResultSet rs = null;
+            String query = "SELECT * FROM tipo_nota";
+            try
+            {
+                pstm = connect.prepareStatement(query);
+                rs = pstm.executeQuery();
+               // System.out.println("Inicio de tabla ");
+                while(rs.next())
+                {
+                   
+                	int id_tipo = rs.getInt("ID_tipo");
+                	String nombre_tipo = rs.getString("tipo");
+                
+                	
+                	Tipos.add(new Tipo(id_tipo, nombre_tipo));
+                	
+                	//System.out.println(rs.getString("Nombre_Usuario"));
+                    
+                }
+            } catch(SQLException e)
+            {
+                e.printStackTrace();    
+            
+            }  
+        	
+        	
+        	return Tipos;
+        }
+        
+        public void addNota(String nombre_nota, String descripcion_nota, int id_tipo_nota, int id_importancia_nota, int id_categoria_nota, String fecha_nota, int id_nivel_nota, int id_usuario_nota) {
+        	 PreparedStatement pstm = null;
+             ResultSet rs = null;
+             String query = "INSERT INTO `nota_principal`(`ID_registro`, `nombre`, `descripcion`, `ID_tipo`, `ID_importancia`, `ID_categoria`, `fecha`, `ID_nivel`, `ID_Usuario`)  VALUES (NULL, '"
+             +nombre_nota +"', '"+ descripcion_nota+"', '" +id_tipo_nota+"', '"+id_importancia_nota+"', '"+id_categoria_nota+"', '"+fecha_nota+"', '"+id_nivel_nota+"', '"+id_usuario_nota+"')";
+             try
+             {
+             	pstm = connect.prepareStatement(query);
+                 pstm.executeUpdate();
+                 
+                
+             } catch(SQLException e)
+             {
+                 e.printStackTrace();    
+             
+             } 
+        }
 
 }

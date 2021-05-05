@@ -13,6 +13,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 
 public class Ver_Nota {
 
@@ -68,8 +69,9 @@ public class Ver_Nota {
 		frame.getContentPane().add(txtNombre);
 		txtNombre.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Imagen");
-		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\artur\\Downloads\\newa.png"));
+		lblNewLabel.setBorder(null);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(385, 17, 73, 73);
 		frame.getContentPane().add(lblNewLabel);
