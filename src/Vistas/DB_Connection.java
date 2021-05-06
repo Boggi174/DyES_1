@@ -297,5 +297,39 @@ public class DB_Connection {
              
              } 
         }
+        
+        public void updateNota(int idnota,String nombre_nota, String descripcion_nota, int id_tipo_nota, int id_importancia_nota, int id_categoria_nota, String fecha_nota, int id_nivel_nota, int id_usuario_nota) {
+        	PreparedStatement pstm = null;
+            ResultSet rs = null;
+            String query = "UPDATE `nota_principal`  SET `nombre` = '"+nombre_nota+"', `descripcion` = '"+descripcion_nota+"', `ID_tipo` = '"+id_tipo_nota+"', `ID_importancia` = '"+id_importancia_nota+"', `ID_categoria` = '"+id_categoria_nota+ "', `fecha` = '"+fecha_nota+"', `ID_nivel` = '"+id_nivel_nota+"', `ID_Usuario` = '"+id_usuario_nota+"' WHERE `nota_principal`.`ID_registro` = " +idnota;
+            try
+            {
+            	pstm = connect.prepareStatement(query);
+                pstm.executeUpdate();
+                
+               
+            } catch(SQLException e)
+            {
+                e.printStackTrace();    
+            
+            } 
+        }
+        
+        public void deleteNota(int idnota) {
+        	 PreparedStatement pstm = null;
+             ResultSet rs = null;
+             String query = "DELETE  FROM nota_principal WHERE `nota_principal`.`ID_registro`= " +idnota;
+             try
+             {
+             	pstm = connect.prepareStatement(query);
+                 pstm.executeUpdate();
+                 
+                
+             } catch(SQLException e)
+             {
+                 e.printStackTrace();    
+             
+             } 
+        }
 
 }

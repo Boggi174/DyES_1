@@ -206,14 +206,23 @@ public class Pantalla_Registro2 implements ActionListener
 		if(e.getSource() == btnNewButton && comboBox_1.getSelectedItem().equals("Nuevo") ) {
 			
 			myphp.addUsuario(textField_1.getText() , String.valueOf(passwordField.getPassword()) , textField_2.getText() ,Long.parseLong(textField_3.getText()) , Integer.parseInt(textField_4.getText()) );
+			Pantalla_Inicio_Sesion2 sa = new Pantalla_Inicio_Sesion2();
+			sa.launcherPantalla_Inicio_Sesion2();
+			frame.dispose();
 		}
 		
 		if(e.getSource()== btnNewButton_1 && !comboBox_1.getSelectedItem().equals("Nuevo")) {
 			myphp.deleteUsuario(Integer.parseInt(textField.getText()));
+			Pantalla_Inicio_Sesion2 sa = new Pantalla_Inicio_Sesion2();
+			sa.launcherPantalla_Inicio_Sesion2();
+			frame.dispose();
 		}
 		
 		if(e.getSource() == btnNewButton && !comboBox_1.getSelectedItem().equals("Nuevo")) {
 			myphp.updateUsuario(Integer.parseInt(textField.getText()),textField_1.getText() , String.valueOf(passwordField.getPassword()) , textField_2.getText() ,Long.parseLong(textField_3.getText()) , Integer.parseInt(textField_4.getText()));
+			Pantalla_Inicio_Sesion2 sa = new Pantalla_Inicio_Sesion2();
+			sa.launcherPantalla_Inicio_Sesion2();
+			frame.dispose();
 		}
 	}
 	

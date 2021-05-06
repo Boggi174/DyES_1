@@ -213,6 +213,9 @@ public class Ver_Nota2 implements ActionListener{
 			System.out.println("Se intercambiaron los datos! Tipo = " + tipo_nota+ " Importancia ="+importancia_nota+" Categoria= " +categoria_nota+ " Nivel =" +nivel_nota);
 			myphp.addNota(nombre_nota, descripcion_nota, tipo_nota, importancia_nota, categoria_nota, fecha_nota, nivel_nota, id_usuario);
 			System.out.println("Pusheado!");
+			Pantalla_Principal2 sa = new Pantalla_Principal2();
+			sa.launcherPantallaPrincipal2();
+			frame.dispose();
 		}
 		
 	}
