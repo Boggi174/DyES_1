@@ -170,7 +170,7 @@ public class Pantalla_Principal {
 		
 		JLabel idnota = new JLabel("");
 		idnota.setFont(new Font("Segoe UI Light", Font.PLAIN, 30));
-		idnota.setBounds(716, 21, 156, 38);
+		idnota.setBounds(722, 24, 156, 38);
 		panel_1.add(idnota);
 		
 		JLabel lblNewLabel_5 = new JLabel("Fecha de creacion:");
@@ -186,8 +186,9 @@ public class Pantalla_Principal {
 		panel_1.add(fechanota);
 		
 		JLabel contenidonota = new JLabel("");
+		contenidonota.setVerticalAlignment(SwingConstants.TOP);
 		contenidonota.setBorder(UIManager.getBorder("ScrollPane.border"));
-		contenidonota.setBounds(10, 86, 725, 546);
+		contenidonota.setBounds(0, 86, 735, 546);
 		panel_1.add(contenidonota);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Importancia:");

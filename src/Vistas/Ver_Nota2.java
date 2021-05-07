@@ -32,6 +32,7 @@ public class Ver_Nota2 implements ActionListener{
 	JComboBox categoriaComboBox;
 	JComboBox nivelComboBox;
 	Connection connect;
+	JButton nuevaCategoriabutton;
 	DB_Connection myphp;
 	ArrayList<Nota> notas;
 	ArrayList<Categoria> categorias;
@@ -39,6 +40,8 @@ public class Ver_Nota2 implements ActionListener{
 	ArrayList<Nivel> niveles;
 	ArrayList<Tipo> tipos;
 	JButton btnNewButton ;
+	 public int idusuario = 1;
+	 JButton cancelarbutton;
 
 	/**
 	 * Launch the application.
@@ -64,6 +67,7 @@ public class Ver_Nota2 implements ActionListener{
 		Ver_Nota2 window = new Ver_Nota2();
 		window.initializerip();
 		window.frame.setVisible(true);
+		
 	}
 
 	/**
@@ -74,6 +78,11 @@ public class Ver_Nota2 implements ActionListener{
 		frame.setBounds(100, 100, 510, 630);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		cancelarbutton = new JButton("Cancelar");
+		cancelarbutton.setBounds(327, 546, 89, 23);
+		cancelarbutton.addActionListener(this);
+		frame.getContentPane().add(cancelarbutton);
 		
 		btnNewButton = new JButton(">>");
 		btnNewButton.setBounds(422, 519, 51, 50);
@@ -137,6 +146,13 @@ public class Ver_Nota2 implements ActionListener{
 		nivelComboBox.setBounds(359, 119, 99, 22);
 		frame.getContentPane().add(nivelComboBox);
 		
+		nuevaCategoriabutton = new JButton("Nueva Categoria");
+		nuevaCategoriabutton.addActionListener(this);
+		nuevaCategoriabutton.setBounds(327, 144, 157, 23);
+		frame.getContentPane().add(nuevaCategoriabutton);
+		
+	
+		
 		
 		myphp = new DB_Connection();
 		connect = myphp.conectar();
@@ -169,7 +185,7 @@ public class Ver_Nota2 implements ActionListener{
 			int importancia_nota = 0;
 			int categoria_nota = 0;
 			int nivel_nota = 0;
-			int id_usuario = 1;
+			int id_usuario = idusuario;
 			String nombre_nota = txtNombre.getText();
 			String descripcion_nota =  textPane.getText();
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -210,12 +226,25 @@ public class Ver_Nota2 implements ActionListener{
 			}
 			
 		
-			System.out.println("Se intercambiaron los datos! Tipo = " + tipo_nota+ " Importancia ="+importancia_nota+" Categoria= " +categoria_nota+ " Nivel =" +nivel_nota);
+			System.out.println("Se intercambiaron los datos! Tipo = " + tipo_nota+ " Importancia ="+importancia_nota+" Categoria= " +categoria_nota+ " Nivel =" +nivel_nota+"ID USuario = " + idusuario);
 			myphp.addNota(nombre_nota, descripcion_nota, tipo_nota, importancia_nota, categoria_nota, fecha_nota, nivel_nota, id_usuario);
 			System.out.println("Pusheado!");
 			Pantalla_Principal2 sa = new Pantalla_Principal2();
 			sa.launcherPantallaPrincipal2();
 			frame.dispose();
+		}
+		
+		if(e.getSource()== nuevaCategoriabutton) {
+			addCategoria2 ss = new addCategoria2();
+			ss.launcheraddCategoria2();
+			frame.dispose();
+		}
+		
+		if(e.getSource() == cancelarbutton) {
+			Pantalla_Principal2 sa = new Pantalla_Principal2();
+			sa.launcherPantallaPrincipal2();
+			frame.dispose();
+			
 		}
 		
 	}

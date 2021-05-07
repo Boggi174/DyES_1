@@ -27,6 +27,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.awt.Frame;
+import javax.swing.JRadioButton;
 
 public class Pantalla_Inicio_Sesion implements ActionListener
 {
@@ -125,6 +126,7 @@ public class Pantalla_Inicio_Sesion implements ActionListener
 						acceso = 1;
 						System.out.println("Entraste!");
 						Pantalla_Principal2 se = new Pantalla_Principal2();
+						se.setIdusuario(x.getIdUsuario());
 						se.launcherPantallaPrincipal2();
 						frmInicioDeSesion.dispose();
 						

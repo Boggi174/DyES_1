@@ -331,5 +331,24 @@ public class DB_Connection {
              
              } 
         }
+        
+        public void addCategoria(String categoria) {
+        	 PreparedStatement pstm = null;
+             ResultSet rs = null;
+             String query = "INSERT INTO `categoria_nota`(`ID_categoria`, `categoria_descripcion`)  VALUES (NULL, '"
+             +categoria +"')";
+             try
+             {
+             	pstm = connect.prepareStatement(query);
+                 pstm.executeUpdate();
+                 
+                
+             } catch(SQLException e)
+             {
+                 e.printStackTrace();    
+             
+             } 
+        	
+        }
 
 }

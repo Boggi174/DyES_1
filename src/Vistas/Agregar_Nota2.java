@@ -41,6 +41,8 @@ public class Agregar_Nota2 implements ActionListener  {
 	JButton eliminarbtn;
 	JButton btnNewButton;
 	JLabel lblNewLabel_33;
+	JButton cancelarbutton;
+	int idusuario= 1;
 	/**
 	 * Launch the application.
 	 */
@@ -61,12 +63,14 @@ public class Agregar_Nota2 implements ActionListener  {
 	 * Create the application.
 	 * @return 
 	 */
-	public void launcherAgregar_Nota2(int idnota, String nivel, String categoria, String importancia, String tipo) {
+	public void launcherAgregar_Nota2(int idnota, String nivel, String categoria, String importancia, String tipo, int idUsuario) {
 		System.out.println("idnota entrada =" +idnota);
 		Agregar_Nota2 window = new Agregar_Nota2();
 		window.initializerip(idnota,nivel,categoria,importancia,tipo);
 		window.frame.setVisible(true);
+		idusuario = idUsuario;
 	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -77,6 +81,11 @@ public class Agregar_Nota2 implements ActionListener  {
 		frame.setBounds(100, 100, 510, 630);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		cancelarbutton = new JButton("Cancelar");
+		cancelarbutton.addActionListener(this);
+		cancelarbutton.setBounds(329, 560, 95, 23);
+		frame.getContentPane().add(cancelarbutton);
 		
 		btnNewButton = new JButton(">");
 		btnNewButton.setBounds(434, 543, 49, 40);
@@ -96,7 +105,7 @@ public class Agregar_Nota2 implements ActionListener  {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		eliminarbtn = new JButton("Eliminar");
-		eliminarbtn.setBounds(339, 560, 89, 23);
+		eliminarbtn.setBounds(20, 560, 101, 23);
 		eliminarbtn.addActionListener(this);
 		frame.getContentPane().add(eliminarbtn);
 		
@@ -148,6 +157,8 @@ public class Agregar_Nota2 implements ActionListener  {
 		nivelComboBox = new JComboBox();
 		nivelComboBox.setBounds(359, 119, 99, 22);
 		frame.getContentPane().add(nivelComboBox);
+		
+	
 		
 		
 		myphp = new DB_Connection();
@@ -234,9 +245,15 @@ public class Agregar_Nota2 implements ActionListener  {
 				}
 				
 			}
-			System.out.println("Se intercambiaron los datos! Tipo = " + id_tipo_nota+ " Importancia ="+id_importancia_nota+" Categoria= " +id_categoria_nota+ " Nivel =" +id_nivel_nota);
+			System.out.println("Se intercambiaron los datos! Tipo = " + id_tipo_nota+ " Importancia ="+id_importancia_nota+" Categoria= " +id_categoria_nota+ " Nivel =" +id_nivel_nota + "ID USuario = " + idusuario);
 			System.out.println("Se presiono el boton actualizar!");
 			myphp.updateNota(Integer.parseInt(lblNewLabel_33.getText()), nombre_nota, descripcion_nota, id_tipo_nota, id_importancia_nota, id_categoria_nota, fecha_nota, id_nivel_nota, id_usuario_nota);
+			Pantalla_Principal2 se = new Pantalla_Principal2();
+			se.launcherPantallaPrincipal2();
+			frame.dispose();
+		}
+		
+		if(e.getSource()==cancelarbutton) {
 			Pantalla_Principal2 se = new Pantalla_Principal2();
 			se.launcherPantallaPrincipal2();
 			frame.dispose();

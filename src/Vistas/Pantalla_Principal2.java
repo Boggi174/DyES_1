@@ -58,6 +58,17 @@ public class Pantalla_Principal2 implements ActionListener {
 	JLabel importancianota;
 	String tiponota= "" ;
 	int tiponota1=0;
+	public int idusuario;
+	
+	
+	public int getIdusuario() {
+		return idusuario;
+	}
+
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
+	}
+
 	/**
 	 * 
 	 * Launch the application.
@@ -69,11 +80,13 @@ public class Pantalla_Principal2 implements ActionListener {
 	/**
 	 * Create the application.
 	 * @return 
+	 * @return 
 	 */
-	public void launcherPantallaPrincipal2() {
+	public  void launcherPantallaPrincipal2() {
 		Pantalla_Principal2 window = new Pantalla_Principal2();
 		window.initializerip();
 		window.frame.setVisible(true);
+		System.out.println("ID Usuario Al lanzar pantalla prinicipal = "+this.idusuario);
 	
 		
 	}
@@ -81,9 +94,10 @@ public class Pantalla_Principal2 implements ActionListener {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initializerip() {
+	public void initializerip() {
 		
 	
+		
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1280, 720);
@@ -111,17 +125,6 @@ public class Pantalla_Principal2 implements ActionListener {
 		tabbedPane.setBounds(339, 27, 925, 654);
 		frame.getContentPane().add(tabbedPane);
 		
-		JToolBar toolBar = new JToolBar();
-		toolBar.setBounds(0, 0, 1264, 28);
-		frame.getContentPane().add(toolBar);
-		
-		nuevaCategoriaBtn = new JButton("Nueva Categoria");
-		nuevaCategoriaBtn.addActionListener(this);
-		toolBar.add(nuevaCategoriaBtn);
-		
-		ayudaBtn = new JButton("Ayuda");
-		ayudaBtn.addActionListener(this);
-		toolBar.add(ayudaBtn);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 27, 329, 432);
@@ -217,8 +220,9 @@ public class Pantalla_Principal2 implements ActionListener {
 		panel_1.add(fechanota);
 		
 		contenidonota = new JLabel("");
+		contenidonota.setVerticalAlignment(SwingConstants.TOP);
 		contenidonota.setBorder(UIManager.getBorder("ScrollPane.border"));
-		contenidonota.setBounds(10, 86, 725, 546);
+		contenidonota.setBounds(0, 86, 735, 546);
 		panel_1.add(contenidonota);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Importancia:");
@@ -308,6 +312,7 @@ public class Pantalla_Principal2 implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == btnNewButton) {
 			Ver_Nota2 vernota = new Ver_Nota2();
+			System.out.println("ID Usuario Antes de entrar a la vista de vernota  = " + this.idusuario);
 			vernota.launcherVer_Nota2();
 			frame.dispose();
 		}
@@ -509,7 +514,8 @@ public class Pantalla_Principal2 implements ActionListener {
 		}
 		if(e.getSource()== btnNewButton_1) {
 			Agregar_Nota2 sa = new Agregar_Nota2();
-			sa.launcherAgregar_Nota2(Integer.parseInt(idnota.getText()), nivelnota.getText(),categorianota.getText(),importancianota.getText(),tiponota);
+			System.out.println("ID Usuario Antes de entrar a la vista de addnota = "+ this.getIdusuario());
+			sa.launcherAgregar_Nota2(Integer.parseInt(idnota.getText()), nivelnota.getText(),categorianota.getText(),importancianota.getText(),tiponota,this.getIdusuario());
 			System.out.println("Se envio el id " +Integer.parseInt(idnota.getText()));
 			frame.dispose();
 		}

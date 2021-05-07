@@ -52,6 +52,10 @@ public class Ver_Nota {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		JButton cancelarbutton = new JButton("Cancelar");
+		cancelarbutton.setBounds(327, 546, 89, 23);
+		frame.getContentPane().add(cancelarbutton);
+		
 		JButton btnNewButton = new JButton(">>");
 		btnNewButton.setBounds(422, 519, 51, 50);
 		frame.getContentPane().add(btnNewButton);
@@ -112,5 +116,9 @@ public class Ver_Nota {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(359, 119, 99, 22);
 		frame.getContentPane().add(comboBox);
+		
+		JButton nuevaCategoriabutton = new JButton("Nueva Categoria");
+		nuevaCategoriabutton.setBounds(327, 144, 157, 23);
+		frame.getContentPane().add(nuevaCategoriabutton);
 	}
 }

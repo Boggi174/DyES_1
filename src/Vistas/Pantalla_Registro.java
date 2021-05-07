@@ -13,6 +13,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 
 public class Pantalla_Registro {
 
@@ -86,8 +87,9 @@ public class Pantalla_Registro {
 		btnNewButton_1.setBounds(631, 459, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
-		JLabel lblNewLabel_5 = new JLabel("Imagen ");
-		lblNewLabel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\artur\\Downloads\\user (1).png"));
+		lblNewLabel_5.setBorder(null);
 		lblNewLabel_5.setBackground(Color.GRAY);
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setBounds(524, 74, 137, 135);
@@ -115,6 +117,8 @@ public class Pantalla_Registro {
 		textField_3.setColumns(10);
 		
 		txtUsuarios = new JTextField();
+		txtUsuarios.setBorder(null);
+		txtUsuarios.setEditable(false);
 		txtUsuarios.setText("Usuarios: ");
 		txtUsuarios.setBounds(42, 301, 86, 20);
 		frame.getContentPane().add(txtUsuarios);

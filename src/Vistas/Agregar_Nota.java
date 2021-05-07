@@ -53,6 +53,10 @@ public class Agregar_Nota {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		JButton cancelarbutton = new JButton("Cancelar");
+		cancelarbutton.setBounds(329, 560, 95, 23);
+		frame.getContentPane().add(cancelarbutton);
+		
 		JButton btnNewButton = new JButton(">>");
 		btnNewButton.setBounds(434, 543, 49, 40);
 		frame.getContentPane().add(btnNewButton);
@@ -70,7 +74,7 @@ public class Agregar_Nota {
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JButton eliminarbtn = new JButton("Eliminar");
-		eliminarbtn.setBounds(327, 560, 101, 23);
+		eliminarbtn.setBounds(20, 560, 101, 23);
 		frame.getContentPane().add(eliminarbtn);
 		
 		textField = new JTextField();

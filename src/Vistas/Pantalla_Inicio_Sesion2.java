@@ -128,6 +128,7 @@ public class Pantalla_Inicio_Sesion2 implements ActionListener
 						acceso = 1;
 						System.out.println("Entraste!");
 						Pantalla_Principal2 se = new Pantalla_Principal2();
+						se.setIdusuario(x.getIdUsuario());
 						se.launcherPantallaPrincipal2();
 						frmInicioDeSesion.dispose();
 						
