@@ -21,9 +21,9 @@ public class DB_Connection {
     
     public Connection conectar()
     {
-        String servidor = "jdbc:mysql://localhost/case";
-        String usuario = "testo";
-        String password = "123";
+        String servidor = "jdbc:mysql://bfhjsyycssg5yj0r0sjg-mysql.services.clever-cloud.com/bfhjsyycssg5yj0r0sjg";
+        String usuario = "ugjh5toqakdojsmz";
+        String password = "VpYbp47qvOyhyH7MhjG3";
         
         try
         {
